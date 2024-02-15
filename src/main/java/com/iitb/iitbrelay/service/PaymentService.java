@@ -95,7 +95,7 @@ public class PaymentService {
                 .userId(request.getUserId())
                 .appId(request.getAppId())
                 .amount(request.getAmount())
-                .validationStatus("VALID")
+                .validationStatus("Valid")
                 .build();
     }
 }
