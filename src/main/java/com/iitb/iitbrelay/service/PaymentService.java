@@ -2,6 +2,8 @@ package com.iitb.iitbrelay.service;
 
 import com.iitb.iitbrelay.advice.OPServerException;
 import com.iitb.iitbrelay.dto.request.InitPaymentRequest;
+import com.iitb.iitbrelay.dto.request.ValidationRequest;
+import com.iitb.iitbrelay.dto.response.ValidationResponse;
 import com.iitb.iitbrelay.utils.constants.Constants;
 import com.iitb.iitbrelay.utils.enums.ErrorCode;
 import lombok.RequiredArgsConstructor;
@@ -84,5 +86,16 @@ public class PaymentService {
             responseMap.add(name, value);
         }
         return responseMap;
+    }
+
+    public ValidationResponse checkValidation(ValidationRequest request){
+        log.info("In Service");
+        return ValidationResponse.builder()
+                .reqId(request.getReqId())
+                .userId(request.getUserId())
+                .appId(request.getAppId())
+                .amount(request.getAmount())
+                .validationStatus("VALID")
+                .build();
     }
 }

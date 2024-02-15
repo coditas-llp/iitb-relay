@@ -1,6 +1,8 @@
 package com.iitb.iitbrelay.controller;
 
 import com.iitb.iitbrelay.dto.request.InitPaymentRequest;
+import com.iitb.iitbrelay.dto.request.ValidationRequest;
+import com.iitb.iitbrelay.dto.response.ValidationResponse;
 import com.iitb.iitbrelay.service.PaymentService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -20,6 +22,12 @@ public class PaymentController {
     @PostMapping("/init")
     public MultiValueMap<String, String> initiatePayment(@RequestBody InitPaymentRequest initPaymentRequest) {
         return paymentService.initiatePaymentRequest(initPaymentRequest);
+    }
+
+    @PostMapping("/validation")
+    public ValidationResponse checkValidation(@RequestBody ValidationRequest validationRequest) {
+        log.info("Request recorded {}:",validationRequest);
+        return paymentService.checkValidation(validationRequest);
     }
 
     @GetMapping("/thank-you")
