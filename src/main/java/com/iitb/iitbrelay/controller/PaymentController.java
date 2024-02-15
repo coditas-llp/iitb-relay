@@ -34,10 +34,21 @@ public class PaymentController {
     public String getImmediateResponse(@RequestParam(name = "sMsg") String sMsg,
                                        HttpServletResponse response,
                                        HttpServletRequest request) {
+        log.info("Inside [thank-you]");
         log.info("request uri: {}",request.getRequestURI());
         log.info("query string: {}",request.getQueryString());
         log.info("query path info: {}",request.getPathInfo());
         log.info("sMsg: {}",sMsg);
+        return sMsg;
+    }
+    @GetMapping("/settle")
+    public String paymentSettle(@RequestParam(name = "sMsg") String sMsg,
+                                HttpServletRequest request, HttpServletResponse response){
+        log.info("Inside [settle]");
+        log.info("request uri: {}",request.getRequestURI());
+        log.info("query string: {}",request.getQueryString());
+        log.info("query path info: {}",request.getPathInfo());
+        log.info("Message: {}",sMsg);
         return sMsg;
     }
 }
