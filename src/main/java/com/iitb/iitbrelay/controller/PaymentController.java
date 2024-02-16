@@ -12,7 +12,7 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/payment")
+@RequestMapping("/donation")
 @Slf4j
 public class PaymentController {
 
@@ -24,13 +24,13 @@ public class PaymentController {
         return paymentService.initiatePaymentRequest(initPaymentRequest);
     }
 
-    @PostMapping("/validation")
+    @PostMapping("/Validation")
     public ValidationResponse checkValidation(@RequestBody ValidationRequest validationRequest) {
         log.info("Request recorded {}:",validationRequest);
         return paymentService.checkValidation(validationRequest);
     }
 
-    @GetMapping("/thank-you")
+    @GetMapping("/ThankYou")
     public String getImmediateResponse(@RequestParam(name = "sMsg") String sMsg,
                                        HttpServletResponse response,
                                        HttpServletRequest request) {
@@ -41,7 +41,7 @@ public class PaymentController {
         log.info("sMsg: {}",sMsg);
         return sMsg;
     }
-    @GetMapping("/settle")
+    @GetMapping("/Settlement")
     public String paymentSettle(@RequestParam(name = "sMsg") String sMsg,
                                 HttpServletRequest request, HttpServletResponse response){
         log.info("Inside [settle]");
