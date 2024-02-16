@@ -2,7 +2,7 @@ package com.iitb.iitbrelay.utils.constants;
 
 public class Constants {
 
-    public static final String PAYMENT_INIT_URL = "/onlinepay/commJsp/v2_accessPoint.jsp";
+    public static final String PAYMENT_INIT_URL = "/onlinepay_test/commJsp/v2_accessPoint.jsp";
 
     public enum QueryParam {
         Msg("sMsg"),

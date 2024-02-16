@@ -12,7 +12,7 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/donation")
+@RequestMapping("/donationtest")
 @Slf4j
 public class PaymentController {
 
